@@ -5,52 +5,63 @@ section {
 
 body {
     min-height: 3000vh;
+    margin: 0;
 }
 
 section {
     position: relative;
     width: 100%;
-    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+}
+
+.map-container{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
 }
 
 .map {
     width: 800px;
     height: 400px;
     background-color: rgba(255, 0, 0, 0.5);;
+    opacity: 0.5;
+}
+
+.map-highlight{
+    position: absolute;
+    background-color: aqua;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
 }
 
 .text-box-container {
-    position: absolute;
-    top:0;
-    padding-top: 20px;
-    background-color: rgba(0, 0, 0, 0.05);
+    z-index: 1;
+    
   }
 
 .text-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.text-container p {
-    margin: 0;
     width: 60%;
-    max-width: 600px;
+    max-width: 800px;
+    margin: 0;
     font-size: 1.5em;
-    ;
 }
 
 .text-box {
-    width: 60%;
-    max-width: 600px;
+    width: 600px;
     font-size: 1.5em;
     color: #323232;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: white;
     border-radius: 4px;
     padding: 18px 22px;
+    
 }
