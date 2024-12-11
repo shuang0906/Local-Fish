@@ -1,5 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
+gsap.ticker.fps(12);
+
 //-----------------------------------point 1 start--------------------------------------
 // Pin the map when scrolling to the section
 ScrollTrigger.create({
@@ -8,7 +10,7 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text03", 
     end: "center center", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
@@ -19,42 +21,191 @@ gsap.to(".map", {
     duration: 1, 
     ease: "power2.out",
     scrollTrigger: {
-        trigger: ".text01", 
-        start: "top bottom", 
+        trigger: ".map", 
+        start: "center bottom", 
         end: "bottom center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
 
 // Animate the montauk scaling and color when scrolling to text02
-gsap.to(".montauk", {
-    scale: 2,
-    backgroundColor: "yellow",
-    duration: 1, 
+gsap.to(".montauk1", {
+    scale: 1.5,
+    // backgroundColor: "yellow",
+    duration: 0.5, 
     ease: "power2.out",
     scrollTrigger: {
         trigger: ".text02", 
         start: "top bottom", 
         end: "bottom center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
-// Animate the map scaling and position when scrolling to text03
-gsap.to(".map", {
-    scale: 4,
-    x: -200,
-    y: 300,
-    duration: 1, 
+gsap.to(".montauk2", {
+    scale: 1.5,
+    opacity: 1,
+    duration: 0.5, 
+    ease: "power2.out",
     scrollTrigger: {
-        trigger: ".text03", 
+        trigger: ".text02", 
         start: "top bottom", 
         end: "bottom center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
+    },
+});
+
+// Make .cloud1 and .cloud2 visible when .text02 is in view
+gsap.fromTo(
+    [".cloud1", ".cloud2"], // Target both elements
+    { 
+      opacity: 0, // Initial state: hidden
+      visibility: "hidden",
+    },
+    { 
+      opacity: 1, // Final state: fully visible
+      visibility: "visible",
+      duration: 0.5,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".text02", 
+        start: "top top", 
+        end: "bottom top", 
+        toggleActions: "play none none none", // Play when entering, reverse on leave
+        //markers: true, // For debugging
+      },
+    }
+  );
+  
+
+// Animation to move .cloud1 100% on trigger .text02
+gsap.to(".cloud1", { 
+    x: '100%',
+    duration: 0.5, 
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".text02", 
+        start: "top top", 
+        end: "bottom top", 
+        toggleActions: "play none none reverse",
+        //markers: true,
+    },
+});
+
+// Animation to move .cloud1 back to 0% and hide .map on trigger .text03
+gsap.set(".boat", { autoAlpha: 0 });
+
+gsap.fromTo(".cloud1", 
+    { x: '100%' }, 
+    { 
+        x: '0%',
+        duration: 1, 
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".text03", 
+            start: "top bottom", 
+            end: "bottom top", 
+            toggleActions: "play none none reverse",
+            //markers: true,
+            onEnter: () => {
+                // Hide .map when the animation starts
+                gsap.set(".map", { autoAlpha: 0 }); // Makes the map invisible
+                gsap.set(".boat", { autoAlpha: 1 }); // Makes the map invisible
+            }
+        },
+        onReverseComplete: () => {
+            // Reappear .map only after the animation fully reverses
+            gsap.set(".map", { autoAlpha: 1 }); // Makes the map visible
+            gsap.set(".boat", { autoAlpha: 0 }); // Makes the map invisible
+        }
+    }
+);
+
+// Animation to move .cloud1 100% on trigger .text02
+gsap.to(".cloud2", { 
+    x: '-100%', // Move to 100% on the x-axis
+    duration: 0.5, 
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".text02", 
+        start: "top top", 
+        end: "bottom top", 
+        toggleActions: "play none none reverse", // Play on enter, reverse on leave back
+        //markers: true,
+    },
+});
+
+// Animation to move .cloud1 back to 0% on trigger .text03
+gsap.fromTo(".cloud2", 
+    { x: '-100%' }, // Starting position (from where the first animation ended)
+    { 
+        x: '0%', // Move back to the starting position
+        duration: 1, 
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".text03", 
+            start: "top bottom", 
+            end: "bottom top", 
+            toggleActions: "play none none reverse", // Play on enter, reverse on leave back
+            //markers: true,
+        },
+    }
+);
+
+gsap.to(".map", {
+    scale: 3,
+    duration: 1, 
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".text02", 
+        start: "top top", 
+        end: "bottom top", 
+        toggleActions: "play none none reverse",
+        //markers: true, 
+    },
+});
+
+// gsap.to(".ocean", {
+//     opacity: 1,
+//     duration: 1, 
+//     ease: "power2.out",
+//     scrollTrigger: {
+//         trigger: ".text02", 
+//         start: "top top", 
+//         end: "bottom top", 
+//         toggleActions: "play none none reverse",
+//         //markers: true, 
+//     },
+// });
+
+// Fade out .bg-ocean at trigger .map-container
+gsap.to(".bg-ocean", {
+    opacity: 1,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".text02",
+        start: "top center", 
+        end: "bottom top",
+        toggleActions: "play none none reverse", // Play on enter, reverse on scroll back
+        //markers: true,
+    },
+});
+
+gsap.to(".bg-default2", {
+    opacity: 1,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".map-container",
+        start: "bottom center", 
+        end: "bottom top",
+        toggleActions: "play none none reverse", // Play on enter, reverse on scroll back
+        //markers: true,
     },
 });
 
@@ -68,7 +219,7 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text03", 
     end: "center center", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
@@ -79,14 +230,14 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text07", 
     end: "bottom -50%", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
 // Animate the fish color and scaling when scrolling to text05
 gsap.to(".fish", {
     filter: "grayscale(0%)",
-    scale: 1.4,
+    scale: 1.2,
     opacity: 1,
     duration: 1, 
     ease: "power2.out",
@@ -95,75 +246,92 @@ gsap.to(".fish", {
         start: "top bottom", 
         end: "bottom center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
-// Animate the trawl
-// const targetX = window.innerWidth + 800;
-// gsap.to(".trawl", {
-//     x: targetX,
-//     scrollTrigger: {
-//       trigger: ".text07", 
-//       start: "top bottom", 
-//       end: "bottom center", 
-//       scrub: true, // Syncs the animation with the scroll
-//       toggleActions: "play none none reverse",
-//       markers: true, 
-//     },
-//   });
-const trawlElement = document.querySelector('.trawl');
-const widthDisplay = document.getElementById('widthDisplay');
+gsap.set(".trawl", { y: '-100vh' }); 
 
-let currentTrawlWidth = 0;
+gsap.set(".trawl", {  opacity: 0 }); 
 
-// Function to get and update the width
-function updateTrawlWidth() {
-    if (trawlElement) {
-        currentTrawlWidth = trawlElement.offsetWidth; // Get the element's width
-        widthDisplay.textContent = currentTrawlWidth; // Display the numeric width
-        console.log(`Width: ${currentTrawlWidth}px`); // Log the width to console
-    }
-}
+gsap.to(".trawl", 
+    {
+    opacity: 1, 
+    duration: 0.1,
+    scrollTrigger: {
+        trigger: ".text07", 
+        start: "top bottom", 
+        end: "bottom -50%", 
+        toggleActions: "play none none none",
+        //markers: true, 
+    },
+});
 
-// Run the function initially
-updateTrawlWidth();
+gsap.to(".trawl", 
+    {
+    y: '0',
+    duration: 1,
+    scrollTrigger: {
+        trigger: ".text07", 
+        start: "top bottom", 
+        end: "bottom -50%", 
+        toggleActions: "play none none reverse",
+        //markers: true, 
+    },
+});
 
-// Add event listener to update on window resize
-window.addEventListener('resize', updateTrawlWidth);
-
-// GSAP Animation
-const targetX = window.innerWidth + currentTrawlWidth;
-
-// Set initial position
-gsap.set(".trawl", { x: -targetX });
-
-// Create animation with ScrollTrigger 
-//sync w/ scroll
-// gsap.to(".trawl", {
-//     x: targetX, 
-//     scrollTrigger: {
-//         trigger: ".text07", 
-//         start: "top bottom", 
-//         end: "bottom top",
-//         scrub: true,
-//         toggleActions: "play none none reverse",
-//         markers: true, 
-//     },
-// });
-
-//fix duration
-gsap.to(".trawl", {
-    x: targetX, 
-    duration: 2,
+gsap.fromTo(".trawl", 
+    { y: '0' },
+    {
+    y: '-100vh',
+    duration: 1,
     scrollTrigger: {
         trigger: ".text07", 
         start: "bottom top", 
         end: "bottom -50%", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
+
+gsap.to(".fish-group", {
+    y: '-100vh',
+    duration: 1,
+    scrollTrigger: {
+        trigger: ".text07", 
+        start: "bottom top", 
+        end: "bottom -50%", 
+        toggleActions: "play none none reverse",
+        //markers: true, 
+    },
+});
+
+
+// gsap.fromTo(".cloud1", 
+//     { x: '100%' }, 
+//     { 
+//         x: '0%',
+//         duration: 0.5, 
+//         ease: "power2.out",
+//         scrollTrigger: {
+//             trigger: ".text03", 
+//             start: "top bottom", 
+//             end: "bottom top", 
+//             toggleActions: "play none none reverse",
+//             //markers: true,
+//             onEnter: () => {
+//                 // Hide .map when the animation starts
+//                 gsap.set(".map", { autoAlpha: 0 }); // Makes the map invisible
+//                 gsap.set(".boat", { autoAlpha: 1 }); // Makes the map invisible
+//             }
+//         },
+//         onReverseComplete: () => {
+//             // Reappear .map only after the animation fully reverses
+//             gsap.set(".map", { autoAlpha: 1 }); // Makes the map visible
+//             gsap.set(".boat", { autoAlpha: 0 }); // Makes the map invisible
+//         }
+//     }
+// );
 
 //-----------------------------------point 2-a end--------------------------------------
 //-----------------------------------point 2-b start--------------------------------------
@@ -175,7 +343,7 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text07", 
     end: "bottom -50%", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
@@ -186,7 +354,7 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text08", 
     end: "bottom -200%", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
@@ -201,7 +369,7 @@ gsap.to(".porgy-weighted", {
         start: "top bottom", 
         end: "top top", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
@@ -217,7 +385,7 @@ gsap.to(".porgy-weighted", {
             start: "bottom top", // Start point
             end: "bottom -50%", // End point
             toggleActions: "play none none reverse", // Toggle actions
-            markers: true, // Debugging markers
+            //markers: true, // Debugging markers
         },
     });
 
@@ -254,7 +422,7 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text08", 
     end: "bottom -50%", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
@@ -262,10 +430,10 @@ ScrollTrigger.create({
 ScrollTrigger.create({
     trigger: ".trunk-container",
     start: "top top", 
-    endTrigger: ".point2-d", 
-    end: "bottom top", 
+    endTrigger: ".head3", 
+    end: "top bottom", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
@@ -279,20 +447,20 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text09", 
     end: "center center", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
 // Pin the scene when scrolling to the section
-ScrollTrigger.create({
-    trigger: ".sign-container",
-    start: "bottom 10%", 
-    endTrigger: ".text-box.text09", 
-    end: "bottom -200%", 
-    pin: true,
-    markers: true,
-    scrub: true,
-});
+// ScrollTrigger.create({
+//     trigger: ".sign-container",
+//     start: "top 80%", 
+//     endTrigger: ".text-box.text09", 
+//     end: "bottom -200%", 
+//     pin: true,
+//     //markers: true,
+//     scrub: true,
+// });
 
 //-----------------------------------point 2-d end--------------------------------------
 
@@ -304,7 +472,7 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text11", 
     end: "bottom top", 
     pin: true,
-    markers: true,
+    //markers: true,
     scrub: true,
 });
 
@@ -319,7 +487,7 @@ gsap.to(".pricetag", {
         start: "top bottom", 
         end: "top center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
@@ -328,13 +496,13 @@ gsap.to(".box-market", {
     y: '-50vh', 
     rotation: -30,
     ease: "power4.out",
-    duration: 1,
+    duration: 2,
     scrollTrigger: {
         trigger: ".text10", 
         start: "top bottom", 
         end: "top center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
@@ -349,7 +517,7 @@ gsap.to(".buyer1", {
         start: "top bottom", 
         end: "top center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
@@ -362,7 +530,7 @@ gsap.to(".buyer2", {
         start: "top bottom", 
         end: "top center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 
@@ -377,7 +545,7 @@ gsap.to(".buyer3", {
         start: "top bottom", 
         end: "top center", 
         toggleActions: "play none none reverse",
-        markers: true, 
+        //markers: true, 
     },
 });
 //-----------------------------------point 3 end--------------------------------------
