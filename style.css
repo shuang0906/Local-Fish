@@ -52,6 +52,16 @@ section {
     overflow: hidden;
 }
 
+.team{
+    text-align: center; 
+    margin-top: 20px; 
+    width: 500px; 
+    display: flex; 
+    justify-content: center; 
+    gap: 10px; 
+    flex-wrap: nowrap;
+}
+
 .header-container{
     width: 100%;
     /* background-color: rgba(255, 0, 0, 0.5); */
@@ -103,7 +113,6 @@ section {
 .map {
     width: 800px;
     height: 400px;
-    background-image: url(/assets/images/Map.png);
     background-size: cover;
     opacity: 0.5;
     border: 2px solid;

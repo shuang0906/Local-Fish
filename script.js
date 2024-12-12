@@ -169,18 +169,6 @@ gsap.to(".map", {
     },
 });
 
-// gsap.to(".ocean", {
-//     opacity: 1,
-//     duration: 1, 
-//     ease: "power2.out",
-//     scrollTrigger: {
-//         trigger: ".text02", 
-//         start: "top top", 
-//         end: "bottom top", 
-//         toggleActions: "play none none reverse",
-//         //markers: true, 
-//     },
-// });
 
 // Fade out .bg-ocean at trigger .map-container
 gsap.to(".bg-ocean", {
@@ -508,7 +496,7 @@ gsap.to(".box-market", {
 
 gsap.to(".buyer1", {
     x: '20vw',
-    y: '-40vh', 
+    y: '-60vh', 
     rotation: 30,
     ease: "power4.out",
     duration: 1,
@@ -522,7 +510,7 @@ gsap.to(".buyer1", {
 });
 
 gsap.to(".buyer2", {
-    y: '-40vh', 
+    y: '-60vh', 
     ease: "power4.out",
     duration: 1,
     scrollTrigger: {
@@ -536,7 +524,7 @@ gsap.to(".buyer2", {
 
 gsap.to(".buyer3", {
     x: '-20vw',
-    y: '-40vh', 
+    y: '-60vh', 
     rotation: -30,
     ease: "power4.out",
     duration: 1,
