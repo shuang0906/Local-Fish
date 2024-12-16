@@ -3,10 +3,19 @@
   src: url(/assets/fonts/Harbour\ Regular.ttf);
 }
 
+@font-face {
+    font-family: Landnama;
+    src: url(/assets/fonts/Landna_769_ma.ttf);
+  }
+
 h2{
     font-family: Harbour;
     text-transform: uppercase;
     text-align: center;
+}
+
+p, .text-box {
+    font-family: Landnama;
 }
 
 body {
@@ -14,6 +23,25 @@ body {
     margin: 0; 
     height: 100vh; 
 }
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/assets/images/BackgroundTexture_Default.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5em;
+    z-index: 9999; /* Ensure it stays on top */
+    display: none; /* Hidden by default */
+    padding: 60px;
+    box-sizing: border-box;
+  }
 
 .bg{
     position: fixed;
@@ -26,6 +54,9 @@ body {
     justify-content: center;
     z-index: 0;
     overflow: hidden;
+}
+
+.bg img{
 }
 
 section {
@@ -42,8 +73,8 @@ section {
     height: 100vh;
 }
 
-.cover{
-    /* background-color: rgba(255, 255, 255, 0.5); */
+.cover-container{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,11 +83,22 @@ section {
     overflow: hidden;
 }
 
+.cover-fish{
+    position: absolute;
+    z-index: 1;
+    height: 0;
+    overflow: visible;
+    display: flex; 
+    align-items: center;   
+}
+
+.cover-fish img{
+    width: 100%;
+}
+
 .team{
     text-align: center; 
-    margin-top: 20px; 
-    width: 500px; 
-    display: flex; 
+    margin-bottom: 100px; 
     justify-content: center; 
     gap: 10px; 
     flex-wrap: nowrap;
@@ -70,7 +112,7 @@ section {
     align-items: center;
     justify-content: center;
     z-index: 0;
-    padding: 100px;
+    padding: 60px;
 }
 
 
@@ -126,9 +168,33 @@ section {
     border-radius: 50%;
 }
 
-.map-pin{
-    position: absolute;
-    width: 30px;
+.map-pin, .fish{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.map-pin img{
+    width: 30px !important;
+}
+
+.map-pin div, .fish div{
+    position: relative !important;;
+}
+
+.label {
+    text-wrap: nowrap;
+    font-family: Harbour;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    background-color: white;
+    padding: 2px 8px;
+    border: solid black 2px;
+}
+
+.fish-label{
+    opacity: 0;
+    margin-top: 30px;
 }
 
 .animation-container div{
@@ -153,8 +219,11 @@ section {
 }
 
 .fish{
-    width: 25%;
+    width: 0;
     height: 0;
+}
+
+.main-fish{
     filter: grayscale(80%);
     transition: filter 0.2s;
 }
@@ -163,7 +232,11 @@ section {
 }
 
 .fish img{
-    width: 25%;
+    width: 15vw !important;
+}
+
+.fish-back img{
+    width: 10vw !important;
 }
 
 .weight{

@@ -12,6 +12,10 @@
 </head>
 
 <body>
+    <div id="overlay">
+        <h2>Sorry! The website currently only supports full screen on desktop.</h2>
+      </div>
+
     <div class="bg bg-default">
         <img src="assets/images/BackgroundTexture_Default.jpg">
     </div>
@@ -26,11 +30,31 @@
     </div>
 
     <section>
-        <div class="cover full-screen">
-            <img src="assets/images/Title.png" width="500">
-            <h2 style="margin-top: 60px;">Please enter full-screen mode <br>for the best experience</h2>
+        <div class="cover-container full-screen">
+            <div class="cover-fish cover-flounder" style="width:800px; top:50%;left:-800px;transform: scaleX(-1);">
+                <img src="assets/images/Flounder.png">
+            </div>
+
+            <div class="cover-fish cover-squid" style="width:400px; top:10%;left:-400px;transform: scaleX(-1);">
+                <img style="transform: rotate(-40deg);" src="assets/images/Longfin_Squid.png">
+            </div>
+
+            <div class="cover-fish cover-porgy" style="width:450px; top:35%; left:100vw;">
+                <img src="assets/images/Porgy.png">
+            </div>
+
+            <div class="cover-fish cover-bunker" style="width:400px; top:90%; left:100vw;">
+                <img src="assets/images/Bunker.png">
+            </div>
+
+            <div class="cover-container" style="width: calc(100% - 100px); height: calc(100% - 100px);border: solid rgb(0, 0, 0); background-color: #e9c01a;">
+                <div class="cover-container" style="width: calc(100% - 20px); height: calc(100% - 20px);border: solid rgb(0, 0, 0); background-image: url(/assets/images/BackgroundTexture_Default.jpg);">
+                    <img class="title" src="assets/images/Title.png" width="400">
+                    <h2 style="margin-top: 60px; font-size: 1em;">Enter full-screen for the best experience</h2>
+                </div>
+            </div>
         </div>
-        <div class="text-container">
+        <div class="text-container" style="margin-top: 10vh;">
             <p>
                 In a city defined by its iconic food scene, New Yorkers often enjoy fresh seafood without a second
                 thought about the journey it took to reach their plates. But behind each bite lies a complex network
@@ -56,17 +80,14 @@
             <h2>What are local fishes?</h2>
             <img src="assets/images/Deco2.png" width="100">
         </div>
-        <div class="text-container">
-            <!-- <p>
-                Can we put 2 paragraph here? In a city defined by its iconic food scene, New Yorkers often enjoy fresh seafood without a second
-                thought about the journey it took to reach their plates. But behind each bite lies a complex network
-                that connects the waters surrounding Long Island to the bustling fish markets of Manhattan and Brooklyn.
-                <br><br>
-                Up to 80 percent of the fish and shellfish consumed in the United States is imported, much of it sourced
-                through obscure international seafood conglomerates. These entities often procure fish from companies
-                accused of illegal fishing practices and exploiting forced labor, as documented by the nonprofit Outlaw
-                Ocean Project.
-            </p> -->
+        <div class="text-container" style="margin-bottom: -10vh;">
+            <p>
+                As global seafood consumption continues to rise, it’s easy to overlook the bounty found closer to home. Local waters off Long Island are teeming with a diverse range of fish species that often go unnoticed by consumers. 
+                Despite their availability, these local catches remain underappreciated compared to imported alternatives that dominate national markets. 
+                Understanding what local fish are and why they matter is a critical first step in reconnecting 
+                with regional food systems and fostering sustainable fishing practices.
+                <!-- Can we put 2 paragraph here for transition?-->
+            </p> 
         </div>
     </section>
     <section>
@@ -78,40 +99,68 @@
             background-size: cover;">
             </div> -->
             <!-- to do: instead of change div bg, create divs as bg and change the opacity -->
-            <div class="map">
+            <div class="map" style="filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
                 <div class="map-img">
                     <img src="assets/images/Map.png">
                 </div>
                 <div class="map-pin" style="top:250px; left:270px">
                     <img src="assets/images/Pin_normal.png">
+                    <div class="label">Freeport</div>
                 </div>
-                <div class="map-pin" style="top:70px; left:580px">
+                <div class="map-pin" style="top:70px; left:540px">
                     <img src="assets/images/Pin_normal.png">
+                    <div class="label">Greenport</div>
                 </div>
                 <div class="map-pin" style="top:160px; left:545px">
                     <img src="assets/images/Pin_normal.png">
+                    <div class="label">Hampton</div>
                 </div>
                 <div class="map-pin" style="top:130px; left:615px">
                     <img src="assets/images/Pin_normal.png">
+                    <div class="label">Shinnecock</div>
                 </div>
-                <div class="map-pin montauk1" style="top:70px; left:700px;">
-                    <img src="assets/images/Pin_normal.png">
+                <div class="map-pin" style="top:70px; left:700px;">
+                    <img class="montauk1"  src="assets/images/Pin_normal.png">
+                    <div class="label label-montauk">montauk</div>
                 </div>
-                <div class="map-pin montauk2" style="top:70px; left:700px; opacity: 0">
-                    <img src="assets/images/Pin.png">
-                </div>
-                <div class="map-pin montauk2" style="top:70px; left:700px; opacity: 0">
-                    <img src="assets/images/Pin.png">
+                <div class="map-pin" style="top:70px; left:700px;">
+                    <img class="montauk2" style="opacity: 0" src="assets/images/Pin.png">
+                    <div class="label label-montauk">montauk</div>
                 </div>
             </div>
-            <div class="boat" style="height: 80vh; bottom:0; align-items: flex-end !important;">
+            <div class="boat" style="height: 80vh; bottom:0; align-items: flex-end !important; filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));">
                 <img style="height:100%" src="assets/images/Boat.png">
             </div>
-            <div class="cloud1" style="top:0%; left:-80%; width: 80%; height: 100vh;">
+            <!-- <div class="cloud1" style="top:0%; left:-80%; width: 80%; height: 100vh;">
                 <img src="assets/images/Cloud1.png">
             </div>
             <div class="cloud2" style="top:0%; right:-80%; width: 80%; height: 100vh;">
                 <img src="assets/images/Cloud2.png">
+            </div> -->
+
+            <!-- <div class="cloud4" style="bottom:0; right:0; width: 75%;">
+                <img src="assets/images/cloud4.png">
+            </div>
+            <div class="cloud3" style="top:0; left:0; width: 65%;">
+                <img src="assets/images/cloud3.png">
+            </div>
+            <div class="cloud2" style="bottom:0; right:0; width: 75%;">
+                <img src="assets/images/cloud2.png">
+            </div>
+            <div class="cloud1" style="bottom:0; left:0; width: 55%;">
+                <img src="assets/images/cloud1.png">
+            </div> -->
+            <div class="cloud4" style="bottom:100%; left:100%; width: 75%;">
+                <img src="assets/images/cloud4.png">
+            </div>
+            <div class="cloud3" style="bottom:100%; left:-65%; width: 65%;">
+                <img src="assets/images/cloud3.png">
+            </div>
+            <div class="cloud2" style="top:100%; left:100%; width: 75%;">
+                <img src="assets/images/cloud2.png" alt="Cloud 2">
+            </div>
+            <div class="cloud1" style="top:100%; left:-55%; width: 55%;">
+                <img src="assets/images/cloud1.png" alt="Cloud 1">
             </div>
         </div>
         <div class="text-box-container">
@@ -120,7 +169,7 @@
                 primarily located on Long Island. Notable locations include: Greenport, Hampton Bay - Shinnicock,
                 Freeport, Montauk.
             </div>
-            <div class="text-box text02" style="margin-bottom: 200vh;">
+            <div class="text-box text02" style="margin-bottom: 300vh;">
                 <!-- text02  -->
                 Montauk is the state's largest commercial fishing port.
                 It serves as a hub for both commercial and sport fishing activities.
@@ -145,20 +194,11 @@
             <h2 class="head2">From ocean to market</h2>
             <img src="assets/images/Deco2.png" width="100">
         </div>
-        <div class="text-container">
+        <div class="text-container" style="margin-bottom: -10vh;">
             <p>
-                <!-- can we put some text here for transition?
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-                <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum. -->
+                <!-- Can we put 2 paragraph here for transition? write something like: -->
+                The journey of local fish from ocean to market is a testament to the dedication of New York’s fishing communities. Each catch represents a carefully regulated process, ensuring that fish are harvested responsibly while maintaining the ecological balance of Long Island’s marine ecosystems. At the heart of this process lies a commitment to sustainability—fishing practices that protect local waters today 
+                while preserving them for future generations.
             </p>
         </div>
     </section>
@@ -174,7 +214,22 @@
                 <img src="assets/images/Wave.png">
             </div>
             <div class="fish-group full-screen">
-                <div class="fish" style="top:30%; left:30%;">
+                <div class="fish fish-back" style="top:10%; left:60%;">
+                    <img src="assets/images/Backup Fish Butterfish.png">
+                </div>
+                <div class="fish fish-back" style="top:20%; left:40%;">
+                    <img src="assets/images/Backup Fish Herring.png">
+                </div>
+                <div class="fish fish-back" style="top:45%; right:10%;">
+                    <img src="assets/images/Backup Fish Weakfish.png">
+                </div>
+                <div class="fish fish-back" style="top:55%; left:10%;">
+                    <img src="assets/images/Backup Fish Butterfish.png">
+                </div>
+                <div class="fish fish-back" style="bottom:20%; left:55%;">
+                    <img src="assets/images/Backup Fish Herring.png">
+                </div>
+                <!-- <div class="fish" style="top:30%; left:30%;">
                     <img src="assets/images/Longfin_Squid.png">
                 </div>
                 <div class="fish porgy" style="top:40%; left:65%;">
@@ -188,6 +243,26 @@
                 </div>
                 <div class="fish" style="top:65%; left:55%;">
                     <img src="assets/images/Quahog.png">
+                </div> -->
+                <div class="fish" style="top:30%; left:20%;">
+                    <img class="main-fish" src="assets/images/Longfin_Squid.png">
+                    <div class="label fish-label">Longfin Squid</div>
+                </div>
+                <div class="fish" style="top:30%; right:20%;">
+                    <img class="main-fish" src="assets/images/Bunker.png">
+                    <div class="label fish-label">Bunker</div>
+                </div>
+                <div class="fish porgy" style="top:50%; left:50%; ">
+                    <img class="main-fish" src="assets/images/Porgy.png">
+                    <div class="label fish-label">Porgy</div>
+                </div>
+                <div class="fish" style="bottom:30%; left:20%;">
+                    <img class="main-fish" src="assets/images/Quahog.png">
+                    <div class="label fish-label">Quahog</div>
+                </div>
+                <div class="fish" style="bottom:30%; right:20%;">
+                    <img class="main-fish" src="assets/images/Flounder.png">
+                    <div class="label fish-label">Flounder</div>
                 </div>
             </div>
             <div class="trawl" style="height: 100%;opacity: 0;">
@@ -196,28 +271,34 @@
             </div>
         </div>
         <div class="text-box-container">
-            <div class="text-box text04" style="margin-top: 100vh; margin-bottom: 100vh;">
+            <div class="text-box text04" style="margin-top: 100vh; margin-bottom: 150vh;">
                 <!-- text04  -->
                 Long Island waters boast 47 species of edible fish, shellfish, and crustaceans,
                 with strict seasonal limits ensuring sustainable harvesting.
             </div>
-            <div class="text-box text05" style="margin-bottom: 100vh;">
+            <div class="text-box text05" style="margin-bottom: 200vh;">
                 <!-- text05 -->
                 In 2022, the top species landed by weight in New York were squid, porgy, fluke, clam, and bunker.
                 However, these local catches starkly contrast with the top five most-consumed seafood species in the
                 U.S. in 2021—shrimp, tuna, and tilapia—most of which are imported.
+                <br><br>
                 This highlights a paradox: while local fish, such as porgy, is highly abundant locally, it remains
                 undervalued and rarely consumed,
                 underscoring the disconnect between regional seafood production and national consumption trends.
             </div>
-            <div class="text-box text06" style="margin-bottom: 100vh;">
+            <!-- <div class="text-box text06" style="margin-bottom: 100vh;">
                 Fishing regulations are carefully tailored to ensure sustainability,
                 with different rules applied to various species and fishing activities.
                 For each type of fish, strict fishery management dictates
                 specific practices for commercial and recreational fishing, as well as harvest methods.
-            </div>
+            </div> -->
             <div class="text-box text07" style="margin-bottom: 0;">
                 <!-- text07 -->
+                Fishing regulations are carefully tailored to ensure sustainability,
+                with different rules applied to various species and fishing activities.
+                For each type of fish, strict fishery management dictates
+                specific practices for commercial and recreational fishing, as well as harvest methods.
+                <br><br>
                 For example porgy is sustainably managed and responsibly harvested under U.S. regulations.
                 75 percent of commercial porgy landings are caught with otter trawls.
                 It requires that Vessels fishing must have a minimum mesh size of 5-inch diamond mesh applied throughout
@@ -229,6 +310,18 @@
     </section>
 
     <div class="point2-b"></div>
+    <section>
+        <div class="bg" style="opacity: 1; position: absolute !important; top: 0; z-index: 0;">
+            <img src="assets/images/BackgroundTexture_yellow.jpg">
+        </div>
+        <div class="text-container" style="margin-top: 20vh; margin-bottom: 0vh; z-index: 1;">
+            <p>
+                Sustainability doesn’t stop at the catch—it continues through every step of the process. From careful handling on fishing vessels to efficient transportation and responsible market practices, each stage is designed to minimize waste and maintain quality. 
+            </p>
+        </div>
+    </section>
+
+ 
     <section>
         <div class="animation-container full-screen weight-container">
             <div class="weight-bg" style="width: 100vw; height: 100vh">
@@ -302,18 +395,11 @@
         </div>
         <div class="text-container">
             <p>
-                <!-- can we put some text here for transition?
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-                <br><br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum. -->
+                <!-- Can we put 2 paragraph here for transition?-->
+                Markets play a pivotal role in bringing local fish to consumers' plates. 
+                From Montauk to the Fulton Fish Market, fresh catches arrive daily, offering chefs, grocers, and individuals access to sustainably harvested seafood. 
+                These local markets act as vital distribution points that ensure quality and freshness, 
+                connecting the hard work of fishermen to the tables of seafood lovers across New York.
             </p>
         </div>
     </section>
@@ -389,9 +475,9 @@
 
     <section>
         <div class="team">
-            <span>Journalism & Storytelling <br> <b>Qian Zhang</b></span><br>
-            <span>Illustration & Storytelling <br> <b>Michelle Hua</b></span> <br>
-            <span>Web Design & Development <br> <b>Shun Huang</b></span><br><br>
+            <span>Journalism & Storytelling <br><a href="https://www.linkedin.com/in/qian-zhang-nyu/"><b>Qian Zhang</b></a></span><br>
+            <span>Illustration & Storytelling <br><a href="https://www.instagram.com/michellehua_portfolio/"><b>Michelle Hua</b></a></span> <br>
+            <span>Web Design & Development <br><a href="https://shunhuang.work"><b>Shun Huang</b></a></span><br><br>
             <span>Special Thanks <br> 
                 <b>Kristin Gerbino </b><br> 
                 Fisheries Specialist<br>  
