@@ -246,7 +246,7 @@ gsap.to(".cloud1", {
     scrollTrigger: {
         trigger: ".text02", 
         start: "top top", 
-        end: "bottom -100%", 
+        end: "bottom -50%", 
         toggleActions: "play reverse play reverse",
             onLeave: () => {
                 // Hide .map when the animation starts
@@ -269,7 +269,7 @@ gsap.to(".cloud2", {
     scrollTrigger: {
         trigger: ".text02", 
         start: "top top", 
-        end: "bottom -100%", 
+        end: "bottom -50%", 
         toggleActions: "play reverse play reverse",
     }
 });
@@ -282,7 +282,7 @@ gsap.to(".cloud3", {
     scrollTrigger: {
         trigger: ".text02", 
         start: "top top", 
-        end: "bottom -100%", 
+        end: "bottom -50%", 
         toggleActions: "play reverse play reverse",
     }
 });
@@ -295,7 +295,7 @@ gsap.to(".cloud4", {
     scrollTrigger: {
         trigger: ".text02", 
         start: "top top", 
-        end: "bottom -100%", 
+        end: "bottom -50%", 
         toggleActions: "play reverse play reverse",
     }
 });
@@ -521,7 +521,8 @@ gsap.to(".porgy-weighted", {
     // Add animations to the timeline
     timeline
         .to(".porgy-weighted", {
-            x: 0,
+            x: 10,
+            y:'78vh',
             ease: "power2.out",
             duration: 1,
         })
