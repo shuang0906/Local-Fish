@@ -1,11 +1,11 @@
 @font-face {
   font-family: Harbour;
-  src: url(/assets/fonts/Harbour\ Regular.ttf);
+  src: url(./assets/fonts/Harbour\ Regular.ttf);
 }
 
 @font-face {
     font-family: Landnama;
-    src: url(/assets/fonts/Landna_769_ma.ttf);
+    src: url(./assets/fonts/Landna_769_ma.ttf);
   }
 
 
@@ -65,7 +65,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/assets/images/BackgroundTexture_Default.jpg');
+    background-image: url('./assets/images/BackgroundTexture_Default.jpg');
     background-size: cover;
     display: flex;
     align-items: center;
