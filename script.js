@@ -1,3 +1,33 @@
+function connectElements(svg, startElem, endElem) {
+    const parentRect = svg.getBoundingClientRect();
+    const startRect = startElem.getBoundingClientRect();
+    const endRect = endElem.getBoundingClientRect();
+     const x1 = startRect.left - parentRect.left + startElem.offsetWidth/2;
+    const y1 = startRect.top - parentRect.top + startElem.offsetHeight;
+    const x2 = endRect.left - parentRect.left + endElem.offsetWidth/2;
+    const y2 = endRect.top - parentRect.top + endElem.offsetHeight/2;
+
+    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+    line.setAttribute("x1", x1);
+    line.setAttribute("y1", y1);
+    line.setAttribute("x2", x2);
+    line.setAttribute("y2", y2);
+    line.setAttribute("stroke", "black");
+    line.setAttribute("stroke-width", "2/1.2");
+
+    svg.appendChild(line);
+}
+
+const svg = document.getElementById("svg-container");
+function connectAllElements() {
+    svg.innerHTML = "";
+    for (let i = 1; i <= 4; i++) {
+        connectElements(svg, document.getElementById(`pin${i}`), document.getElementById(`label${i}`));
+    }
+}
+window.onload = connectAllElements;
+window.addEventListener('resize', connectAllElements, true);
+
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.ticker.fps(12);
@@ -55,6 +85,7 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text03", 
     end: "center center", 
     pin: true,
+    pinType:'fixed',
     //markers: true,
     scrub: true,
 });
@@ -75,10 +106,11 @@ gsap.to(".map", {
 });
 
 
+gsap.set(".montauk1", { height: '45px' });
+gsap.set(".montauk2", { height: '45px' });
 // Animate the montauk scaling and color when scrolling to text02
 gsap.to(".montauk1", {
     scale: 1.5,
-    // backgroundColor: "yellow",
     duration: 0.5, 
     ease: "power2.out",
     scrollTrigger: {
@@ -301,17 +333,17 @@ gsap.to(".cloud4", {
 });
 
 
-gsap.to(".map", {
-    scale: 3,
-    duration: 1, 
-    ease: "power2.out",
-    scrollTrigger: {
-        trigger: ".text02", 
-        start: "top top", 
-        end: "bottom top", 
-        toggleActions: "play none none reverse",
-    },
-});
+// gsap.to(".map", {
+//     scale: 3,
+//     duration: 1, 
+//     ease: "power2.out",
+//     scrollTrigger: {
+//         trigger: ".text02", 
+//         start: "top top", 
+//         end: "bottom top", 
+//         toggleActions: "play none none reverse",
+//     },
+// });
 
 
 // Fade out .bg-ocean at trigger .map-container
@@ -680,25 +712,5 @@ gsap.to(".buyer3", {
 });
 //-----------------------------------point 3 end--------------------------------------
 
-    // Function to detect mobile devices
-    function isMobileDevice() {
-        return /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-      }
-  
-      // Function to show overlay based on conditions
-      function showOverlayIfNeeded() {
-        const overlay = document.getElementById('overlay');
-        if (window.innerWidth < 800 || isMobileDevice()) {
-          overlay.style.display = 'flex'; // Show overlay
-          document.body.style.overflow = 'hidden'; // Prevent scrolling
-        } else {
-          overlay.style.display = 'none'; // Hide overlay
-          document.body.style.overflow = 'auto';
-        }
-      }
-  
-      // Check on load
-      window.addEventListener('load', showOverlayIfNeeded);
-  
-      // Check on window resize
-      window.addEventListener('resize', showOverlayIfNeeded);
+
+

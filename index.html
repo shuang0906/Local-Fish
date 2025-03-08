@@ -36,20 +36,20 @@
             <div class="cover-fish cover-flounder" style="width:800px; top:50%;left:-800px;transform: scaleX(-1);">
                 <img src="./assets/images/Flounder.png">
             </div>
-    
+
             <div class="cover-fish cover-squid" style="width:400px; top:10%;left:-400px;transform: scaleX(-1);">
                 <img style="transform: rotate(-40deg);" src="./assets/images/Longfin_Squid.png">
             </div>
-    
+
             <div class="cover-fish cover-porgy" style="width:450px; top:35%; left:100vw;">
                 <img src="./assets/images/Porgy.png">
             </div>
-    
+
             <div class="cover-fish cover-bunker" style="width:400px; top:90%; left:100vw;">
                 <img src="./assets/images/Bunker.png">
             </div>
         </div>
-    
+
         <div class="title-text-wrapper" style="padding-top: 100px;">
             <img src="./assets/images/TitleBorderTop.png">
             <h1>New York
@@ -58,13 +58,14 @@
                 From Port
                 to Plate</h1>
             <img class="title" src="./assets/images/TitleBorderBot.png">
-            <h3>Dive into the world of New York City’s local fish sustainable management system and local fish supply chain process.</h3>
+            <h3>Dive into the world of New York City’s local fish sustainable management system and local fish supply
+                chain process.</h3>
             <!-- <h4>Text by <a href="https://www.linkedin.com/in/qian-zhang-nyu/"><b>Qian Zhang</b></a><br>
                 Illustrations by <a href="https://www.instagram.com/michellehua_portfolio/"><b>Michelle Hua</b></a><br>
                 Coding and design by <a href="https://shunhuang.work"><b>Shun Huang</b></a><br>
             </h4> -->
         </div>
-    
+
     </section>
 
     <section>
@@ -96,46 +97,54 @@
         </div>
         <div class="text-container" style="margin-bottom: -10vh;">
             <p>
-                As global seafood consumption continues to rise, it’s easy to overlook the bounty found closer to home. Local waters off Long Island are teeming with a diverse range of fish species that often go unnoticed by consumers. 
-                Despite their availability, these local catches remain underappreciated compared to imported alternatives that dominate national markets. 
-                Understanding what local fish are and why they matter is a critical first step in reconnecting 
+                As global seafood consumption continues to rise, it’s easy to overlook the bounty found closer to home.
+                Local waters off Long Island are teeming with a diverse range of fish species that often go unnoticed by
+                consumers.
+                Despite their availability, these local catches remain underappreciated compared to imported
+                alternatives that dominate national markets.
+                Understanding what local fish are and why they matter is a critical first step in reconnecting
                 with regional food systems and fostering sustainable fishing practices.
-            </p> 
+            </p>
         </div>
     </section>
 
     <section>
         <div class="animation-container full-screen map-container">
-            <div class="map" style="filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
-                <div class="map-img">
-                    <img src="./assets/images/Map.png">
-                </div>
-                <div class="map-pin" style="top:250px; left:270px">
+            <div class="map" id="map-here" style="filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
+                <svg id="svg-container"></svg>
+
+                <div class="map-pin" id="pin1" style="bottom:22%; left:28%">
                     <img src="./assets/images/Pin_normal.png">
+                </div>
+                <div class="map-pin" id="label1">
                     <div class="label">Freeport</div>
                 </div>
-                <div class="map-pin" style="top:70px; left:540px">
+                <div class="map-pin" id="pin2" style="bottom:68%; right:25%">
                     <img src="./assets/images/Pin_normal.png">
+                </div>
+                <div class="map-pin" id="label2">
                     <div class="label">Greenport</div>
                 </div>
-                <div class="map-pin" style="top:160px; left:545px">
+                <div class="map-pin" id="pin3" style="top:47%; right:30%">
                     <img src="./assets/images/Pin_normal.png">
-                    <div class="label">Hampton</div>
                 </div>
-                <div class="map-pin" style="top:130px; left:615px">
-                    <img src="./assets/images/Pin_normal.png">
-                    <div class="label">Shinnecock</div>
+                <div class="map-pin" id="label3">
+                    <div class="label">Shinnecock - Hampton Bays </div>
                 </div>
-                <div class="map-pin" style="top:70px; left:700px;">
-                    <img class="montauk1"  src="./assets/images/Pin_normal.png">
+                <div class="map-pin" id="pin4" style="top:24%; right:8%">
+                    <img class="montauk1" src="./assets/images/Pin_normal.png">
+                </div>
+                <div class="map-pin" id="label4">
                     <div class="label label-montauk">montauk</div>
                 </div>
-                <div class="map-pin" style="top:70px; left:700px;">
+
+                <div class="map-pin" style="top:22%; right:1%">
                     <img class="montauk2" style="opacity: 0" src="./assets/images/Pin.png">
                     <div class="label label-montauk">montauk</div>
                 </div>
             </div>
-            <div class="boat" style="height: 80vh; bottom:0; align-items: flex-end !important; filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));">
+            <div class="boat"
+                style="height: 80vh; bottom:0; align-items: flex-end !important; filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));">
                 <img style="height:100%" src="./assets/images/Boat.png">
             </div>
             <div class="cloud4" style="bottom:100%; left:100%; width: 75%;">
@@ -182,7 +191,10 @@
         </div>
         <div class="text-container" style="margin-bottom: -10vh;">
             <p>
-                The journey of local fish from ocean to market is a testament to the dedication of New York’s fishing communities. Each catch represents a carefully regulated process, ensuring that fish are harvested responsibly while maintaining the ecological balance of Long Island’s marine ecosystems. At the heart of this process lies a commitment to sustainability—fishing practices that protect local waters today 
+                The journey of local fish from ocean to market is a testament to the dedication of New York’s fishing
+                communities. Each catch represents a carefully regulated process, ensuring that fish are harvested
+                responsibly while maintaining the ecological balance of Long Island’s marine ecosystems. At the heart of
+                this process lies a commitment to sustainability—fishing practices that protect local waters today
                 while preserving them for future generations.
             </p>
         </div>
@@ -198,7 +210,7 @@
                 <img src="./assets/images/Wave.png">
             </div>
             <div class="fish-group full-screen">
-                <div class="fish fish-back" style="top:10%; left:60%;">
+                <!-- <div class="fish fish-back" style="top:10%; left:60%;">
                     <img src="./assets/images/Backup Fish Butterfish.png">
                 </div>
                 <div class="fish fish-back" style="top:20%; left:40%;">
@@ -212,7 +224,7 @@
                 </div>
                 <div class="fish fish-back" style="bottom:20%; left:55%;">
                     <img src="./assets/images/Backup Fish Herring.png">
-                </div>
+                </div> -->
                 <div class="fish" style="top:30%; left:20%;">
                     <img class="main-fish" src="./assets/images/Longfin_Squid.png">
                     <div class="label fish-label">Longfin Squid</div>
@@ -270,16 +282,19 @@
 
     <div class="point2-b"></div>
     <section>
-        <div class="bg bg-yellow1" style="opacity: 1; position: absolute !important; top: 0; z-index: 0; height: 100vh;">
+        <div class="bg bg-yellow1"
+            style="opacity: 1; position: absolute !important; top: 0; z-index: 0; height: 100vh;">
             <img src="./assets/images/BackgroundTexture_yellow.jpg">
         </div>
         <div class="text-container" style="margin-top: 20vh; margin-bottom: 0vh; z-index: 1;">
             <p>
-                Sustainability doesn’t stop at the catch—it continues through every step of the process. From careful handling on fishing vessels to efficient transportation and responsible market practices, each stage is designed to minimize waste and maintain quality. 
+                Sustainability doesn’t stop at the catch—it continues through every step of the process. From careful
+                handling on fishing vessels to efficient transportation and responsible market practices, each stage is
+                designed to minimize waste and maintain quality.
             </p>
         </div>
     </section>
- 
+
     <section>
         <div class="animation-container full-screen weight-container">
             <div class="weight-bg" style="width: 100vw; height: 100vh">
@@ -299,8 +314,8 @@
         </div>
         <div class="text-box-container">
             <div class="text-box text08" style="margin-top: 100vh; margin-bottom: 100vh;">
-                Commercial fishers are required to submit vessel trip reports (VTRs) to 
-                the Department of Environmental Conservation(DEC) or other marine resource 
+                Commercial fishers are required to submit vessel trip reports (VTRs) to
+                the Department of Environmental Conservation(DEC) or other marine resource
                 management agencies. The data are used for quota management, fishery
                 stock assessments, protected species management and economic analyses.
                 <br><br>
@@ -344,19 +359,59 @@
 
     <!-- point 3 start -->
     <div class="point3-a"></div>
-    <section >
+    <section>
         <div class="header-container head3">
             <img src="./assets/images/Deco1.png" width="100">
-            <h2 class="">From market to plate</h2>            
+            <h2 class="">From market to plate</h2>
             <img src="./assets/images/Deco2.png" width="100">
         </div>
         <div class="text-container">
             <p>
-                Markets play a pivotal role in bringing local fish to consumers' plates. 
-                From Montauk to the Fulton Fish Market, fresh catches arrive daily, offering chefs, grocers, and individuals access to sustainably harvested seafood. 
-                These local markets act as vital distribution points that ensure quality and freshness, 
+                Markets play a pivotal role in bringing local fish to consumers' plates.
+                From Montauk to the Fulton Fish Market, fresh catches arrive daily, offering chefs, grocers, and
+                individuals access to sustainably harvested seafood.
+                These local markets act as vital distribution points that ensure quality and freshness,
                 connecting the hard work of fishermen to the tables of seafood lovers across New York.
             </p>
+        </div>
+    </section>
+
+    <div class="point3-b"></div>
+    <section>
+        <div class="animation-container full-screen market-container">
+            <div class="box-market" style="width:40%;">
+                <img src="assets/images/BoxMarket.png">
+            </div>
+            <div class="ice-market" style="width:35%;">
+                <img src="assets/images/ice-market.png">
+            </div>
+
+            <div class="pricetag" style="bottom:100vh; right:100vw; width:20%;">
+                <img src="assets/images/price.png">
+            </div>
+            <div class="buyer1" style="top:80vh; right:90vw; width:40%; ">
+                <img src="assets/images/Hand 3 (1).png">
+            </div>
+            <div class="buyer2" style="top:100vh; left:calc(50vw - 20%); width:40%; ">
+                <img src="assets/images/Hand 2 (1).png">
+            </div>
+            <div class="buyer3" style="top:80vh; left:100vw; width:40%;">
+                <img src="assets/images/Hand 1 (1).png">
+            </div>
+        </div>
+        <div class="text-box-container">
+            <div class="text-box text10" style="margin-top: 150vh; margin-bottom: 50vh;">
+                <!-- [text10] -->
+                Fishermen always ship fresh, locally caught fish to markets like Montauk Harbor and the Fulton Fish
+                Market, ensuring the highest quality for buyers.
+            </div>
+            <div class="text-box text11" style="margin-top: 150vh;margin-bottom: 100vh;">
+                <!-- [text11] -->
+                These buyers include local restaurants, grocery stores, and individual consumers who seek sustainably
+                harvested seafood. By choosing local catches like porgy, squid, and fluke, buyers not only enjoy fresher
+                fish but also help support the livelihoods of fishermen and their communities. Supporting local
+                fisheries fosters sustainable business practices and strengthens the connection between consumers and
+                their regional food systems. </div>
         </div>
     </section>
     <!-- point 3 end -->
@@ -364,12 +419,18 @@
     <section>
         <div class="header-container head4">
             <img src="./assets/images/Deco1.png" width="100">
-            <h2 class="">Sustainability and Environmental Impact</h2>            
+            <h2 class="">Sustainability and Environmental Impact</h2>
             <img src="./assets/images/Deco2.png" width="100">
         </div>
         <div class="text-container">
             <p>
-                Eating local fish ensures fresher, tastier seafood and supports a healthier diet. The U.S. is a global leader in sustainable seafood practices, with strict regulations that prioritize ecological balance. Local seafood has a much smaller carbon footprint compared to imported options, further promoting environmental sustainability. Prominent markets such as the Fulton Fish Market and local farmers' markets emphasize sustainable practices, making it easier for consumers to enjoy fresh fish while reducing their ecological impact. Choosing local seafood not only benefits personal health but also supports the environment and strengthens the local economy.
+                Eating local fish ensures fresher, tastier seafood and supports a healthier diet. The U.S. is a global
+                leader in sustainable seafood practices, with strict regulations that prioritize ecological balance.
+                Local seafood has a much smaller carbon footprint compared to imported options, further promoting
+                environmental sustainability. Prominent markets such as the Fulton Fish Market and local farmers'
+                markets emphasize sustainable practices, making it easier for consumers to enjoy fresh fish while
+                reducing their ecological impact. Choosing local seafood not only benefits personal health but also
+                supports the environment and strengthens the local economy.
             </p>
         </div>
     </section>
@@ -377,7 +438,12 @@
     <section>
         <div class="text-container">
             <p>
-                Support your community and the environment by choosing local fish. Buying fresh, sustainably caught seafood from local markets where you can get more information on localfish.org.  It helps reduce your carbon footprint and provides a healthier, higher-quality protein source. By caring about where your fish comes from, you’re not just nourishing yourself—you’re supporting local fishermen, preserving the environment, and fostering a sustainable food system. Remember, you are what you eat, so make it count by choosing local fish.    
+                Support your community and the environment by choosing local fish. Buying fresh, sustainably caught
+                seafood from local markets where you can get more information on localfish.org. It helps reduce your
+                carbon footprint and provides a healthier, higher-quality protein source. By caring about where your
+                fish comes from, you’re not just nourishing yourself—you’re supporting local fishermen, preserving the
+                environment, and fostering a sustainable food system. Remember, you are what you eat, so make it count
+                by choosing local fish.
             </p>
         </div>
     </section>
@@ -390,21 +456,24 @@
     <section>
         <div class="header-container head4">
             <img src="./assets/images/Deco1.png" width="100">
-            <h2 class="">where to buy</h2>            
+            <h2 class="">where to buy</h2>
             <img src="./assets/images/Deco2.png" width="100">
         </div>
-        <iframe style="border-radius: 8px;border: 2px solid; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));" src="https://www.google.com/maps/d/u/0/embed?mid=1qFv3h8_DjJpHAr-jOo8z7ZW1Ttf3_r4&ehbc=2E312F"></iframe>
+        <iframe style="border-radius: 8px;border: 2px solid; filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));"
+            src="https://www.google.com/maps/d/u/0/embed?mid=1qFv3h8_DjJpHAr-jOo8z7ZW1Ttf3_r4&ehbc=2E312F"></iframe>
         <p>This map is created by <a href="https://www.localfish.org/locator">Cornell Cooperative Extension</a></p>
     </section>
-    
+
     <section>
         <div class="team">
-            <span>Journalism & Storytelling <br><a href="https://www.linkedin.com/in/qian-zhang-nyu/"><b>Qian Zhang</b></a></span><br>
-            <span>Illustration & Storytelling <br><a href="https://www.instagram.com/michellehua_portfolio/"><b>Michelle Hua</b></a></span> <br>
+            <span>Journalism & Storytelling <br><a href="https://www.linkedin.com/in/qian-zhang-nyu/"><b>Qian
+                        Zhang</b></a></span><br>
+            <span>Illustration & Storytelling <br><a href="https://www.instagram.com/michellehua_portfolio/"><b>Michelle
+                        Hua</b></a></span> <br>
             <span>Web Design & Development <br><a href="https://shunhuang.work"><b>Shun Huang</b></a></span><br><br>
-            <span>Special Thanks <br> 
-                <b>Kristin Gerbino </b><br> 
-                Fisheries Specialist<br>  
+            <span>Special Thanks <br>
+                <b>Kristin Gerbino </b><br>
+                Fisheries Specialist<br>
                 Cornell Cooperative Extension Marine Program
             </span>
         </div>
@@ -412,10 +481,9 @@
 
 </body>
 
-<!-- <script 
-    async 
-    defer 
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJKjLqg8nTjV9KWZffAAXDfAlHq-5Av6U&libraries=geometry,places">
-</script> -->
-    
+<script>
+
+
+    </script>
+
 </html>
