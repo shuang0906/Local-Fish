@@ -9,6 +9,9 @@
 
     <script src="script.js" defer></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
     <meta charset="utf-8" />
 
 </head>
@@ -38,7 +41,7 @@
             </div>
 
             <div class="cover-fish cover-squid" style="width:400px; top:10%;left:-400px;transform: scaleX(-1);">
-                <img style="transform: rotate(-40deg);" src="./assets/images/Longfin_Squid.png">
+                <img src="./assets/images/Longfin_Squid.png">
             </div>
 
             <div class="cover-fish cover-porgy" style="width:450px; top:35%; left:100vw;">
@@ -110,42 +113,40 @@
 
     <section>
         <div class="animation-container full-screen map-container">
-            <div class="map" id="map-here" style="filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));">
-                <svg id="svg-container"></svg>
-
-                <div class="map-pin" id="pin1" style="bottom:22%; left:28%">
-                    <img src="./assets/images/Pin_normal.png">
-                </div>
-                <div class="map-pin" id="label1">
+            <div class="map">
+                <div class="map-mark ny" style="top:75%; left:11%; text-wrap: nowrap; 
+                font-weight: 500; color: white;
+                -webkit-text-stroke: 2px black;
+                paint-order: stroke fill;">New York<br>City</div>
+                <div class="map-mark state" style="top:52%; left:6.5%;">NEW JERSEY</div>
+                <div class="map-mark state" style="top:14%; left:20%;">NEW YORK</div>
+                <div class="map-mark state" style="top:7%; left:64%;">CONNECTICUT</div>
+                <div class="map-mark state" style="top:62%; left:45%; text-wrap: nowrap;
+                font-weight: 700; font-style: italic; color: black;">Long Island</div>
+                <div class="map-pin bottom" style="bottom:22%; left:28%">
+                    <div class="map-line" style="line-height: 40px;">&nbsp;</div>
+                    <img src="./assets/images/Pin_Normal.png">
                     <div class="label">Freeport</div>
                 </div>
-                <div class="map-pin" id="pin2" style="bottom:68%; right:25%">
-                    <img src="./assets/images/Pin_normal.png">
-                </div>
-                <div class="map-pin" id="label2">
+                <div class="map-pin top" style="bottom:68%; right:25%">
+                    <div class="map-line greenport">&nbsp;</div>
+                    <img src="./assets/images/Pin_Normal.png">
                     <div class="label">Greenport</div>
                 </div>
-                <div class="map-pin" id="pin3" style="top:47%; right:30%">
-                    <img src="./assets/images/Pin_normal.png">
+                <div class="map-pin bottom" style="bottom:40%; right:30%">
+                    <div class="map-line shinnecock">&nbsp;</div>
+                    <img src="./assets/images/Pin_Normal.png">
+                    <div class="label">Shinnecock - Hampton Bays</div>
                 </div>
-                <div class="map-pin" id="label3">
-                    <div class="label">Shinnecock - Hampton Bays </div>
-                </div>
-                <div class="map-pin" id="pin4" style="top:24%; right:8%">
-                    <img class="montauk1" src="./assets/images/Pin_normal.png">
-                </div>
-                <div class="map-pin" id="label4">
-                    <div class="label label-montauk">montauk</div>
-                </div>
-
-                <div class="map-pin" style="top:22%; right:1%">
-                    <img class="montauk2" style="opacity: 0" src="./assets/images/Pin.png">
-                    <div class="label label-montauk">montauk</div>
+                <div class="map-pin bottom" style="bottom:63%; right:8%">
+                    <div class="map-line" style="line-height: 40px;">&nbsp;</div>
+                    <img class="montauk1" src="./assets/images/Pin_Normal.png">
+                    <img class="montauk2" style="opacity: 0;" src="./assets/images/Pin_Highlight.png">
+                    <div class="label">montauk</div>
                 </div>
             </div>
-            <div class="boat"
-                style="height: 80vh; bottom:0; align-items: flex-end !important; filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.5));">
-                <img style="height:100%" src="./assets/images/Boat.png">
+            <div class="boat">
+                <img src="./assets/images/Boat.png">
             </div>
             <div class="cloud4" style="bottom:100%; left:100%; width: 75%;">
                 <img src="./assets/images/cloud4.png">
@@ -171,10 +172,14 @@
                 It serves as a hub for both commercial and sport fishing activities.
             </div>
             <div class="text-box text03" style="margin-bottom: 0;">
-                In New York, approximately 900 state food fish license holders and 200 federally permitted vessels
-                operate under strict regulations to ensure sustainable scup fishing.
-                These measures prevent overfishing while balancing commercial and recreational interests, protecting
-                marine ecosystems for future generations.
+                In New York, commercial fishing vessels must comply with strict regulations to ensure sustainability.
+                The state imposes a maximum registered length of 70 feet for commercial vessels operating within its
+                marine and coastal district, with exceptions granted to those actively engaged in licensed commercial
+                fisheries before July 1, 1997.
+                <br><br>
+                Approximately 900 state food fish license holders and 200 federally permitted vessels operate under
+                these rules,
+                utilizing a variety of vessel types suited for different fishing methods.
             </div>
         </div>
     </section>
@@ -210,21 +215,6 @@
                 <img src="./assets/images/Wave.png">
             </div>
             <div class="fish-group full-screen">
-                <!-- <div class="fish fish-back" style="top:10%; left:60%;">
-                    <img src="./assets/images/Backup Fish Butterfish.png">
-                </div>
-                <div class="fish fish-back" style="top:20%; left:40%;">
-                    <img src="./assets/images/Backup Fish Herring.png">
-                </div>
-                <div class="fish fish-back" style="top:45%; right:10%;">
-                    <img src="./assets/images/Backup Fish Weakfish.png">
-                </div>
-                <div class="fish fish-back" style="top:55%; left:10%;">
-                    <img src="./assets/images/Backup Fish Butterfish.png">
-                </div>
-                <div class="fish fish-back" style="bottom:20%; left:55%;">
-                    <img src="./assets/images/Backup Fish Herring.png">
-                </div> -->
                 <div class="fish" style="top:30%; left:20%;">
                     <img class="main-fish" src="./assets/images/Longfin_Squid.png">
                     <div class="label fish-label">Longfin Squid</div>
@@ -246,8 +236,8 @@
                     <div class="label fish-label">Flounder</div>
                 </div>
             </div>
-            <div class="trawl" style="height: 100%;opacity: 0;">
-                <img style="height: 100%;" src="./assets/images/Fishing_net.png">
+            <div class="trawl" style="height: 100vh; opacity: 0;">
+                <img src="./assets/images/Fishing_Net.png">
                 <div id="widthDisplay" style="display: none;"></div>
             </div>
         </div>
@@ -257,6 +247,8 @@
                 with strict seasonal limits ensuring sustainable harvesting.
             </div>
             <div class="text-box text05" style="margin-bottom: 200vh;">
+                In 2022, the top species landed by weight in New York were squid, porgy, fluke, clam, and bunker. 
+
                 However, these local catches starkly contrast with the top five most-consumed seafood species in the
                 U.S. in 2021—shrimp, tuna, and tilapia—most of which are imported.
                 <br><br>
@@ -265,8 +257,6 @@
                 underscoring the disconnect between regional seafood production and national consumption trends.
             </div>
             <div class="text-box text07" style="margin-bottom: 0;">
-                Fishing regulations are carefully tailored to ensure sustainability,
-                with different rules applied to various species and fishing activities.
                 For each type of fish, strict fishery management dictates
                 specific practices for commercial and recreational fishing, as well as harvest methods.
                 <br><br>
@@ -281,7 +271,7 @@
     </section>
 
     <div class="point2-b"></div>
-    <section>
+    <section style="border-top: 4px solid black;">
         <div class="bg bg-yellow1"
             style="opacity: 1; position: absolute !important; top: 0; z-index: 0; height: 100vh;">
             <img src="./assets/images/BackgroundTexture_yellow.jpg">
@@ -296,7 +286,7 @@
     </section>
 
     <section>
-        <div class="animation-container full-screen weight-container">
+        <div class="animation-container full-screen weight-container testimage-container ">
             <div class="weight-bg" style="width: 100vw; height: 100vh">
                 <div class="weight" style="top:50%; left:20%;">
                     <img src="./assets/images/Weight.png">
@@ -327,7 +317,7 @@
 
     <div class="point2-c"></div>
     <section>
-        <div class="animation-container full-screen trunk-container" style="background: none !important;">
+        <div class="animation-container full-screen trunk-container testimage-container " style="background: none !important;">
             <div class="trunk" style="width:30%;">
                 <img src="./assets/images/trunk.png" style="height: 90vh; width: auto;">
             </div>
@@ -346,7 +336,7 @@
 
     <div class="point2-d"></div>
     <section>
-        <div class="animation-container full-screen sign-container">
+        <div class="animation-container full-screen sign-container testimage-container">
             <div class="sign" style="bottom:0; width:70%; height: 500px;">
                 <img src="./assets/images/sign.png">
             </div>
@@ -360,7 +350,7 @@
     <!-- point 3 start -->
     <div class="point3-a"></div>
     <section>
-        <div class="header-container head3">
+        <div class="header-container head3 testimage-container">
             <img src="./assets/images/Deco1.png" width="100">
             <h2 class="">From market to plate</h2>
             <img src="./assets/images/Deco2.png" width="100">
@@ -378,7 +368,7 @@
 
     <div class="point3-b"></div>
     <section>
-        <div class="animation-container full-screen market-container">
+        <div class="animation-container full-screen market-container testimage-container ">
             <div class="box-market" style="width:40%;">
                 <img src="assets/images/BoxMarket.png">
             </div>
@@ -411,7 +401,8 @@
                 harvested seafood. By choosing local catches like porgy, squid, and fluke, buyers not only enjoy fresher
                 fish but also help support the livelihoods of fishermen and their communities. Supporting local
                 fisheries fosters sustainable business practices and strengthens the connection between consumers and
-                their regional food systems. </div>
+                their regional food systems.
+            </div>
         </div>
     </section>
     <!-- point 3 end -->
@@ -484,6 +475,6 @@
 <script>
 
 
-    </script>
+</script>
 
 </html>

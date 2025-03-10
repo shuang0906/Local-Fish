@@ -1,33 +1,3 @@
-function connectElements(svg, startElem, endElem) {
-    const parentRect = svg.getBoundingClientRect();
-    const startRect = startElem.getBoundingClientRect();
-    const endRect = endElem.getBoundingClientRect();
-     const x1 = startRect.left - parentRect.left + startElem.offsetWidth/2;
-    const y1 = startRect.top - parentRect.top + startElem.offsetHeight;
-    const x2 = endRect.left - parentRect.left + endElem.offsetWidth/2;
-    const y2 = endRect.top - parentRect.top + endElem.offsetHeight/2;
-
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
-    line.setAttribute("x1", x1);
-    line.setAttribute("y1", y1);
-    line.setAttribute("x2", x2);
-    line.setAttribute("y2", y2);
-    line.setAttribute("stroke", "black");
-    line.setAttribute("stroke-width", "2/1.2");
-
-    svg.appendChild(line);
-}
-
-const svg = document.getElementById("svg-container");
-function connectAllElements() {
-    svg.innerHTML = "";
-    for (let i = 1; i <= 4; i++) {
-        connectElements(svg, document.getElementById(`pin${i}`), document.getElementById(`label${i}`));
-    }
-}
-window.onload = connectAllElements;
-window.addEventListener('resize', connectAllElements, true);
-
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.ticker.fps(12);
@@ -106,11 +76,10 @@ gsap.to(".map", {
 });
 
 
-gsap.set(".montauk1", { height: '45px' });
-gsap.set(".montauk2", { height: '45px' });
+
 // Animate the montauk scaling and color when scrolling to text02
 gsap.to(".montauk1", {
-    scale: 1.5,
+    scale: 1.2,
     duration: 0.5, 
     ease: "power2.out",
     scrollTrigger: {
@@ -123,7 +92,7 @@ gsap.to(".montauk1", {
 });
 
 gsap.to(".montauk2", {
-    scale: 1.5,
+    scale: 1.2,
     opacity: 1,
     duration: 0.5, 
     ease: "power2.out",
@@ -149,126 +118,8 @@ gsap.to(".label-montauk", {
     },
 });
 
-// Make .cloud1 and .cloud2 visible when .text02 is in view
-// gsap.fromTo(
-//     [".cloud1", ".cloud2"], // Target both elements
-//     { 
-//       opacity: 0, // Initial state: hidden
-//       visibility: "hidden",
-//     },
-//     { 
-//       opacity: 1, // Final state: fully visible
-//       visibility: "visible",
-//       duration: 0.5,
-//       ease: "power2.out",
-//       scrollTrigger: {
-//         trigger: ".text02", 
-//         start: "top top", 
-//         end: "bottom top", 
-//         toggleActions: "play none none none", // Play when entering, reverse on leave
-//         //markers: true, // For debugging
-//       },
-//     }
-//   );
-  
-
-// // Animation to move .cloud1 100% on trigger .text02
-// gsap.to(".cloud1", { 
-//     x: '100%',
-//     duration: 0.5, 
-//     ease: "power2.out",
-//     scrollTrigger: {
-//         trigger: ".text02", 
-//         start: "top top", 
-//         end: "bottom top", 
-//         toggleActions: "play none none reverse",
-//         //markers: true,
-//     },
-// });
-
 // Animation to move .cloud1 back to 0% and hide .map on trigger .text03
 gsap.set(".boat", { autoAlpha: 0 });
-
-// gsap.fromTo(".cloud1", 
-//     { x: '100%' }, 
-//     { 
-//         x: '0%',
-//         duration: 1, 
-//         ease: "power2.out",
-//         scrollTrigger: {
-//             trigger: ".text03", 
-//             start: "top bottom", 
-//             end: "bottom top", 
-//             toggleActions: "play none none reverse",
-//             //markers: true,
-//             onEnter: () => {
-//                 // Hide .map when the animation starts
-//                 gsap.set(".map", { autoAlpha: 0 }); // Makes the map invisible
-//                 gsap.set(".boat", { autoAlpha: 1 }); // Makes the map invisible
-//             }
-//         },
-//         onReverseComplete: () => {
-//             // Reappear .map only after the animation fully reverses
-//             gsap.set(".map", { autoAlpha: 1 }); // Makes the map visible
-//             gsap.set(".boat", { autoAlpha: 0 }); // Makes the map invisible
-//         }
-//     }
-// );
-
-// Animation to move .cloud1 100% on trigger .text02
-// gsap.to(".cloud2", { 
-//     x: '-100%', // Move to 100% on the x-axis
-//     duration: 0.5, 
-//     ease: "power2.out",
-//     scrollTrigger: {
-//         trigger: ".text02", 
-//         start: "top top", 
-//         end: "bottom top", 
-//         toggleActions: "play none none reverse", // Play on enter, reverse on leave back
-//         //markers: true,
-//     },
-// });
-
-// // Animation to move .cloud1 back to 0% on trigger .text03
-// gsap.fromTo(".cloud2", 
-//     { x: '-100%' }, // Starting position (from where the first animation ended)
-//     { 
-//         x: '0%', // Move back to the starting position
-//         duration: 1, 
-//         ease: "power2.out",
-//         scrollTrigger: {
-//             trigger: ".text03", 
-//             start: "top bottom", 
-//             end: "bottom top", 
-//             toggleActions: "play none none reverse", // Play on enter, reverse on leave back
-//             //markers: true,
-//         },
-//     }
-// );
-
-
-//newcloud
-
-// gsap.to(".cloud1", {
-//     x: '100%',
-//     y: '-100%',
-//     duration: 1, 
-//     ease: "power2.out",
-//     scrollTrigger: {
-//         trigger: ".text02", 
-//         start: "top top", 
-//         end: "bottom top", 
-//         toggleActions: "play none none reverse",
-//     },
-//     onComplete: () => {
-//         gsap.to(".cloud1", {
-//             x: '0%',
-//             y: '0%',
-//             duration: 1,
-//             ease: "power2.inOut"
-//         });
-//     }
-// });
 
 gsap.to(".cloud1", {
     x: '100%',
@@ -333,17 +184,17 @@ gsap.to(".cloud4", {
 });
 
 
-// gsap.to(".map", {
-//     scale: 3,
-//     duration: 1, 
-//     ease: "power2.out",
-//     scrollTrigger: {
-//         trigger: ".text02", 
-//         start: "top top", 
-//         end: "bottom top", 
-//         toggleActions: "play none none reverse",
-//     },
-// });
+gsap.to(".map", {
+    scale: 3,
+    duration: 1, 
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: ".text02", 
+        start: "top top", 
+        end: "bottom top", 
+        toggleActions: "play none none reverse",
+    },
+});
 
 
 // Fade out .bg-ocean at trigger .map-container
@@ -423,7 +274,6 @@ gsap.to(".fish-label", {
         start: "bottom top", 
         end: "top -50%",
         toggleActions: "play none none reverse",
-        //markers: true, 
     },
 });
 
@@ -433,20 +283,8 @@ gsap.set(".trawl", {  opacity: 0 });
 
 gsap.to(".trawl", 
     {
-    opacity: 1, 
-    duration: 0.1,
-    scrollTrigger: {
-        trigger: ".text07", 
-        start: "top 200%", 
-        end: "bottom -50%", 
-        toggleActions: "play none none none",
-        //markers: true, 
-    },
-});
-
-gsap.to(".trawl", 
-    {
     y: '0',
+    opacity: 1, 
     duration: 1,
     scrollTrigger: {
         trigger: ".text07", 
