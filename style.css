@@ -92,7 +92,7 @@ body {
 }
 
 .bg-default {
-    background-image: url("assets/images/BackgroundTexture_Default.jpg");
+    background-image: url("./assets/images/BackgroundTexture_Default.jpg");
     background-size: cover;
     /* Ensures the image covers the div */
     background-position: center;
