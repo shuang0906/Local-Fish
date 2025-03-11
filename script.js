@@ -56,7 +56,6 @@ ScrollTrigger.create({
     end: "center center", 
     pin: true,
     pinType:'fixed',
-    //markers: true,
     scrub: true,
 });
 
@@ -70,8 +69,7 @@ gsap.to(".map", {
         trigger: ".map", 
         start: "center bottom", 
         end: "bottom center", 
-        toggleActions: "play none none reverse",
-        //markers: true, 
+        toggleActions: "play none none none",
     },
 });
 
@@ -358,9 +356,10 @@ ScrollTrigger.create({
 });
 
 //fish drop
-gsap.set(".porgy-weighted", { x: '-50%' });
+//gsap.set(".porgy-weighted", { x: '-50%' });
 gsap.to(".porgy-weighted", {
-    y: '70vh', 
+    yPercent: 100,
+    y: -50, //Kai
     ease: "power4.out",
     duration: 0.5,
     scrollTrigger: {
@@ -374,25 +373,24 @@ gsap.to(".porgy-weighted", {
 
 //fish move
     // Calculate target positions
-    //var porgyWeightedTargetX = 0.5 * window.innerWidth - 0.5 * document.querySelector('.porgy-weighted').offsetWidth;
     var boxTargetX = 0.5 * window.innerWidth + 0.5 * document.querySelector('.box').offsetWidth;
 
     // Create a GSAP timeline with a shared ScrollTrigger
     var timeline = gsap.timeline({
         scrollTrigger: {
-            trigger: ".text08", // Shared trigger
-            start: "bottom top", // Start point
-            end: "bottom -50%", // End point
-            toggleActions: "play none none reverse", // Toggle actions
-            //markers: true, // Debugging markers
+            trigger: ".text08", 
+            start: "bottom top",
+            end: "bottom -50%", 
+            toggleActions: "play none none reverse", 
+            //markers: true
         },
     });
 
     // Add animations to the timeline
     timeline
         .to(".porgy-weighted", {
-            x: 10,
-            y:'78vh',
+            xPercent: 30,
+            y: 5,
             ease: "power2.out",
             duration: 1,
         })
@@ -410,7 +408,7 @@ gsap.to(".porgy-weighted", {
             scale: 0.3, // Scale to 0.5
             ease: "power4.out",
             duration: 1,
-        }, "+=0"); // Start 2 seconds after the previous animations
+        }, "+=0");
 
 //-----------------------------------point 2-b end--------------------------------------
 //-----------------------------------point 2-c start--------------------------------------
@@ -422,7 +420,6 @@ ScrollTrigger.create({
     endTrigger: ".text-box.text08", 
     end: "bottom -50%", 
     pin: true,
-    //markers: true,
     scrub: true,
 });
 
@@ -450,17 +447,6 @@ ScrollTrigger.create({
     //markers: true,
     scrub: true,
 });
-
-// Pin the scene when scrolling to the section
-// ScrollTrigger.create({
-//     trigger: ".sign-container",
-//     start: "top 80%", 
-//     endTrigger: ".text-box.text09", 
-//     end: "bottom -200%", 
-//     pin: true,
-//     //markers: true,
-//     scrub: true,
-// });
 
 //-----------------------------------point 2-d end--------------------------------------
 
@@ -506,9 +492,10 @@ gsap.to(".box-market", {
     },
 });
 
-gsap.to(".buyer1", {
+gsap.fromTo(".buyer1", 
+    {y: "100vh" },{
     x: '20vw',
-    y: '-60vh', 
+    y: '-10vh', 
     rotation: 30,
     ease: "power4.out",
     duration: 1,
@@ -521,8 +508,9 @@ gsap.to(".buyer1", {
     },
 });
 
-gsap.to(".buyer2", {
-    y: '-60vh', 
+gsap.fromTo(".buyer2", 
+    {y: "100vh" },{
+    y: '0vh', 
     ease: "power4.out",
     duration: 1,
     scrollTrigger: {
@@ -534,9 +522,10 @@ gsap.to(".buyer2", {
     },
 });
 
-gsap.to(".buyer3", {
+gsap.fromTo(".buyer3", 
+    {y: "100vh" },{
     x: '-20vw',
-    y: '-60vh', 
+    y: '-10vh', 
     rotation: -30,
     ease: "power4.out",
     duration: 1,

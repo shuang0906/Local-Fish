@@ -139,7 +139,6 @@ section {
 }
 
 .cover-fish {
-    /* position: absolute; */
     z-index: 1;
     height: 0;
     overflow: visible;
@@ -149,6 +148,7 @@ section {
 
 .cover-fish img {
     width: 100%;
+    transform: scale(0.5);
 }
 
 .team {
@@ -356,18 +356,21 @@ iframe {
 }
 
 .weight {
-    width: 30%;
+    width: 50%;
     height: 0;
 }
 
 .form {
-    width: 30%;
+    width: 50%;
 }
 
 .porgy-weighted,
 .box {
     height: 0;
     width: 40%;
+}
+.porgy-weighted{
+    left: 20%;
 }
 
 .shinnecock {
@@ -400,6 +403,19 @@ iframe {
     height: 8vh;
 }
 
+.trunk {
+    width: 50vw;
+    height: auto;
+}
+
+.box-market{width:60%}
+.ice-market{width:55%}
+
+.buyer {
+    bottom: 0; 
+    width:40%;
+}
+
 @media (min-width: 886px) {
     h1 {
         font-size: 63px;
@@ -412,6 +428,24 @@ iframe {
 }
 
 @media (min-width: 740px) {
+
+    .cover-fish img {
+        transform: scale(1);
+    }
+
+    .buyer {bottom: -200px; width:30%;}
+    .box-market{width:40%}
+    .ice-market{width:35%}
+
+    .form {
+        width: 30%;
+    }
+
+    .trunk{
+        height: 90vh; 
+        width: auto;
+    }
+
     .trawl img {
         height: auto;
         width: 100vw;
@@ -429,6 +463,11 @@ iframe {
     .ny{
         font-size: 1.5vw
     }
+
+    .weight {
+        width: 30%;
+    }
+
     .label {
         font-size: 0.8em;
     }
